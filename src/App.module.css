@@ -1,0 +1,654 @@
+/* ==========================================================================
+   FlightScope — Aerospace Telemetry Dashboard CSS Module
+   Pure CSS Modules — Zero Tailwind / Zero Utility Libraries
+   Dual Themes: Modern Next-Gen Stealth Dark & Aero Daylight Light
+   ========================================================================== */
+
+/* ==========================================================================
+   Variáveis Base por Tema
+   ========================================================================== */
+
+/* TEMA ESCURO (Dark Aerospace Stealth) */
+.themeDark {
+  --bg-primary: #060913;
+  --bg-gradient: radial-gradient(ellipse at 50% 0%, rgba(14, 165, 233, 0.15) 0%, transparent 65%),
+                 linear-gradient(to bottom, #090e1c 0%, #060913 100%);
+  --bg-card: rgba(13, 18, 34, 0.75);
+  --border-color: rgba(56, 189, 248, 0.18);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --color-pitch: #00e5ff;
+  --color-roll: #c084fc;
+  --color-radar: #10b981;
+
+  --color-safe-bg: rgba(6, 78, 59, 0.85);
+  --color-safe-border: #10b981;
+  --color-safe-text: #a7f3d0;
+
+  --color-alert-bg: rgba(120, 53, 15, 0.85);
+  --color-alert-border: #f59e0b;
+  --color-alert-text: #fde68a;
+
+  --color-critical-bg: rgba(127, 29, 29, 0.9);
+  --color-critical-border: #ef4444;
+  --color-critical-text: #fca5a5;
+
+  --chart-grid: #1e293b;
+  --chart-axis: #475569;
+  --chart-axis-text: #94a3b8;
+  --tooltip-bg: rgba(10, 15, 30, 0.96);
+  --tooltip-border: rgba(56, 189, 248, 0.35);
+  --tooltip-text: #f8fafc;
+}
+
+/* TEMA CLARO (Light Daylight Cockpit) */
+.themeLight {
+  --bg-primary: #f1f5f9;
+  --bg-gradient: radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.18) 0%, transparent 65%),
+                 linear-gradient(to bottom, #e2e8f0 0%, #f1f5f9 100%);
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --border-color: rgba(148, 163, 184, 0.35);
+  --border-glow: rgba(2, 132, 199, 0.35);
+  --card-shadow: 0 8px 30px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --color-pitch: #0284c7;
+  --color-roll: #7c3aed;
+  --color-radar: #059669;
+
+  --color-safe-bg: #ecfdf5;
+  --color-safe-border: #059669;
+  --color-safe-text: #065f46;
+
+  --color-alert-bg: #fffbeb;
+  --color-alert-border: #d97706;
+  --color-alert-text: #92400e;
+
+  --color-critical-bg: #fef2f2;
+  --color-critical-border: #dc2626;
+  --color-critical-text: #991b1b;
+
+  --chart-grid: #e2e8f0;
+  --chart-axis: #cbd5e1;
+  --chart-axis-text: #475569;
+  --tooltip-bg: rgba(255, 255, 255, 0.98);
+  --tooltip-border: rgba(148, 163, 184, 0.4);
+  --tooltip-text: #0f172a;
+}
+
+/* ==========================================================================
+   Dashboard Container
+   ========================================================================== */
+.dashboard {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.25rem;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(168, 85, 247, 0.2));
+  border: 1px solid var(--border-glow);
+  border-radius: 12px;
+  color: var(--color-pitch);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+  transition: all 0.3s ease;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subTitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Theme Toggle Button */
+.themeToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.themeToggleBtn:hover {
+  background: rgba(148, 163, 184, 0.22);
+  border-color: var(--border-glow);
+  transform: translateY(-1px);
+}
+
+/* Connect USB Button */
+.connectBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.35rem;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid #38bdf8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.35);
+}
+
+.connectBtn:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.5);
+  transform: translateY(-1px);
+}
+
+.connectBtn:active {
+  transform: translateY(1px);
+}
+
+/* Disconnect Button */
+.disconnectBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.disconnectBtn:hover {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: #ef4444;
+}
+
+/* Simulator Toggle Button */
+.simBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.simBtn:hover {
+  background: rgba(148, 163, 184, 0.22);
+  color: var(--text-primary);
+}
+
+.simBtnActive {
+  background: rgba(192, 132, 252, 0.18);
+  border-color: #c084fc;
+  color: #9333ea;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.3);
+}
+
+/* Connection Badge */
+.connectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #059669;
+}
+
+.statusIndicatorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+/* ==========================================================================
+   Painel de Status (Barra Destacada Dinâmica)
+   ========================================================================== */
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  border-radius: 12px;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  border-width: 2px;
+  border-style: solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.statusTextGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.statusIconBadge {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statusContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.statusLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.85;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.statusValue {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.statusMetaGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dangerLevelBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.dangerLevelTitle {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.dangerLevelScore {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Variação < 25: Verde (Seguro) */
+.statusSafe {
+  background-color: var(--color-safe-bg);
+  border-color: var(--color-safe-border);
+  color: var(--color-safe-text);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Variação >= 25 e < 50: Amarelo (Alerta) */
+.statusAlert {
+  background-color: var(--color-alert-bg);
+  border-color: var(--color-alert-border);
+  color: var(--color-alert-text);
+  box-shadow: 0 4px 25px rgba(245, 158, 11, 0.25);
+}
+
+/* Variação >= 50: Vermelho com animação de piscar (Crítico) */
+.statusCritical {
+  background-color: var(--color-critical-bg);
+  border-color: var(--color-critical-border);
+  color: var(--color-critical-text);
+  animation: criticalBlink 1s infinite alternate ease-in-out;
+}
+
+@keyframes criticalBlink {
+  0% {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.8), inset 0 0 15px rgba(239, 68, 68, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+  }
+}
+
+/* ==========================================================================
+   Telemetry Quick HUD Cards (Métricas Instantâneas)
+   ========================================================================== */
+.hudGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.hudCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.1rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hudCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-glow);
+}
+
+.hudCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hudCardLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.hudCardUnit {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hudCardValue {
+  font-size: 1.95rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.hudCardValuePitch {
+  color: var(--color-pitch);
+}
+
+.hudCardValueRoll {
+  color: var(--color-roll);
+}
+
+.hudCardValueRadar {
+  color: var(--color-radar);
+}
+
+.hudCardValueDanger {
+  color: #f59e0b;
+}
+
+.hudCardFooter {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Gráficos (Charts Container)
+   ========================================================================== */
+.chartsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.chartCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--card-shadow);
+}
+
+.chartCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.chartTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chartTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.chartBadge {
+  font-size: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.chartLegendCustom {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-secondary);
+}
+
+.legendColorBox {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 270px;
+  min-height: 270px;
+}
+
+.chartWrapperRadar {
+  width: 100%;
+  height: 220px;
+  min-height: 220px;
+}
+
+/* ==========================================================================
+   Overlay / Mensagem de aviso
+   ========================================================================== */
+.browserWarning {
+  background: var(--color-alert-bg);
+  border: 1px solid var(--color-alert-border);
+  color: var(--color-alert-text);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  border-top: 1px solid var(--border-color);
+}
+
+.footerMetrics {
+  display: flex;
+  gap: 1.25rem;
+}
+
+/* ==========================================================================
+   Tooltips Recharts Customizados (Sem Tailwind)
+   ========================================================================== */
+.customTooltip {
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.tooltipTitle {
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.2rem;
+}
+
+.tooltipRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.2rem 0;
+}

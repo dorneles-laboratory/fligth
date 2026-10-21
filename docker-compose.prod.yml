@@ -1,0 +1,20 @@
+name: flightscope-stack
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flightscope_frontend_prod
+    container_name: flightscope_frontend_prod
+    restart: always
+    networks:
+      - gateway_net
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+
+networks:
+  gateway_net:
+    external: true

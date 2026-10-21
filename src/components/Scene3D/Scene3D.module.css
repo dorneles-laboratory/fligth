@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Scene3D — 3D Flight Simulation Viewport Module
+   Pure CSS Modules — Zero Tailwind / Zero Utility Libraries
+   ========================================================================== */
+
+.sceneContainer {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 420px;
+  max-height: 680px;
+  background: radial-gradient(circle at 50% 30%, #0c182b 0%, #050811 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 229, 255, 0.08);
+}
+
+.canvasWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   Controles Flutuantes da Câmera (Floating Overlay)
+   ========================================================================== */
+.viewControls {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(15, 23, 42, 0.75);
+  padding: 0.4rem 0.6rem;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: transparent;
+  color: #94a3b8;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.viewBtnActive {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.35), rgba(14, 165, 233, 0.2));
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.hudToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.7rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hudToggleBtn:hover {
+  color: #e2e8f0;
+}
+
+.hudToggleBtnActive {
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+/* ==========================================================================
+   Badge de Telemetria Flutuante no Topo Direito
+   ========================================================================== */
+.telemetryBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  background: rgba(15, 23, 42, 0.75);
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+}
+
+.telemetryBadgeTitle {
+  color: #00e5ff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.telemetryBadgeInfo {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   HUD Overlay SVG
+   ========================================================================== */
+.hudOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hudSvg {
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
+  max-height: 520px;
+}
+
+.blinkWarning {
+  animation: hudCriticalFlash 0.7s infinite alternate ease-in-out;
+}
+
+@keyframes hudCriticalFlash {
+  0% {
+    opacity: 1;
+    fill: #ef4444;
+  }
+  100% {
+    opacity: 0.2;
+    fill: #7f1d1d;
+  }
+}
