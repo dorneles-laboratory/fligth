@@ -2,9 +2,104 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f2fe'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FlightScope — Telemetria de Voo em Tempo Real</title>
+    <title>FlightScope · Telemetria de Voo 3D em Tempo Real</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta
+      name="description"
+      content="FlightScope é uma plataforma de telemetria de voo 3D em tempo real com visualização aeroespacial interativa e cockpit HUD, desenvolvida por Fernando Dorneles da Silva (Dorneles Laboratory / UFSM)."
+    />
+    <meta
+      name="keywords"
+      content="FlightScope, telemetria de voo, visualização 3D, aeroespacial, cockpit HUD, Web Serial API, Three.js, Fernando Dorneles da Silva, Dorneles Laboratory, UFSM"
+    />
+    <meta name="author" content="Fernando Dorneles da Silva" />
+    <meta name="creator" content="Fernando Dorneles da Silva" />
+    <meta name="theme-color" content="#050811" />
+    <link rel="canonical" href="https://flightscope.dorneles.dev/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://flightscope.dorneles.dev/" />
+    <link rel="alternate" hreflang="x-default" href="https://flightscope.dorneles.dev/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://flightscope.dorneles.dev/" />
+    <meta property="og:title" content="FlightScope · Telemetria de Voo 3D em Tempo Real" />
+    <meta
+      property="og:description"
+      content="Visualização 3D e telemetria de voo em tempo real com cockpit HUD — plataforma aeroespacial interativa desenvolvida por Fernando Dorneles da Silva."
+    />
+    <meta property="og:image" content="https://flightscope.dorneles.dev/dorneles.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="FlightScope - Telemetria de Voo 3D" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="FlightScope" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://flightscope.dorneles.dev/" />
+    <meta name="twitter:title" content="FlightScope · Telemetria de Voo 3D em Tempo Real" />
+    <meta
+      name="twitter:description"
+      content="Visualização 3D e telemetria de voo em tempo real por Fernando Dorneles da Silva (UFSM / Dorneles Laboratory)."
+    />
+    <meta name="twitter:image" content="https://flightscope.dorneles.dev/dorneles.jpeg" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://dorneles.dev/#person",
+            "name": "Fernando Dorneles da Silva",
+            "url": "https://dorneles.dev",
+            "image": "https://flightscope.dorneles.dev/dorneles.jpeg",
+            "jobTitle": "Engenheiro de Computação / Desenvolvedor Full-Stack",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Dorneles Laboratory",
+              "url": "https://dorneles.dev"
+            },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Universidade Federal de Santa Maria (UFSM)",
+              "url": "https://www.ufsm.br"
+            },
+            "sameAs": [
+              "https://www.wikidata.org/wiki/Q141727157",
+              "https://linkedin.com/in/fernandodorneles",
+              "https://github.com/dornelesfernando",
+              "https://instagram.com/dorneles_fernando",
+              "http://lattes.cnpq.br/0532418852427960"
+            ]
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://flightscope.dorneles.dev/#app",
+            "name": "FlightScope",
+            "url": "https://flightscope.dorneles.dev",
+            "description": "Plataforma de telemetria de voo 3D em tempo real com visualização aeroespacial interativa e cockpit HUD.",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "All",
+            "inLanguage": "pt-BR",
+            "creator": {
+              "@id": "https://dorneles.dev/#person"
+            },
+            "author": {
+              "@id": "https://dorneles.dev/#person"
+            }
+          }
+        ]
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />

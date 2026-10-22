@@ -1,0 +1,7 @@
+Contact: mailto:security@dorneles.dev
+Contact: https://github.com/dorneles-laboratory/fligth/security
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: pt, en
+Canonical: https://flightscope.dorneles.dev/.well-known/security.txt
+Policy: https://github.com/dorneles-laboratory/fligth/blob/main/SECURITY.md
+Acknowledgments: https://github.com/dorneles-laboratory/fligth/graphs/contributors

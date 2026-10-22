@@ -1,0 +1,12 @@
+/* TEAM */
+Developer & Architect: Fernando Dorneles da Silva
+Contact: contact@dorneles.dev
+Location: Santa Maria, RS, Brasil
+
+/* THANKS */
+Universidade Federal de Santa Maria (UFSM)
+
+/* SITE */
+Last update: 2026-10-22
+Standards: HTML5, React 19, Three.js, CSS Modules
+Language: Portuguese (Brazil)

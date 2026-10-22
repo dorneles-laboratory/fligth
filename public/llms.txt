@@ -1,0 +1,17 @@
+# FlightScope — Telemetria de Voo 3D em Tempo Real
+
+> FlightScope é uma plataforma de visualização aeroespacial e telemetria de voo 3D em tempo real com cockpit HUD interativo, desenvolvida por Fernando Dorneles da Silva como projeto de pesquisa na Universidade Federal de Santa Maria (UFSM) e Dorneles Laboratory.
+
+- **URL:** https://flightscope.dorneles.dev
+- **Arquiteto & Engenheiro Responsável:** Fernando Dorneles da Silva (https://dorneles.dev)
+- **Afiliação:** Universidade Federal de Santa Maria (UFSM)
+- **Currículo Lattes:** http://lattes.cnpq.br/0532418852427960
+- **Wikidata:** https://www.wikidata.org/wiki/Q141727157
+- **LinkedIn:** https://linkedin.com/in/fernandodorneles
+- **GitHub:** https://github.com/dornelesfernando
+- **Organização GitHub:** Dorneles Laboratory (https://github.com/dorneles-laboratory)
+
+## Recursos Principais
+- Visualização 3D de aeronaves e vetores de voo (Three.js e WebGL)
+- Cockpit HUD com atitude, altitude, velocidade e horizonte artificial
+- Conexão e telemetria direta via Web Serial API
